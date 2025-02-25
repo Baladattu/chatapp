@@ -12,14 +12,14 @@ const app = express();
 dotenv.config();
 connectionDB();
 app.use(cors({
-    orgin: "http://localhost:3000",
+    orgin: "https://chatpp-sigma.vercel.app/signup",
     methods: ["GET", "POST", "PATCH"]
 }));
 
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    console.log("welcome to chat app");
+    res.send("welcome to chat app");
 })
 
 app.use("/api/user", userRoutes);
@@ -31,7 +31,7 @@ const server = app.listen(port, console.log("server is running at post = ", port
 
 const io = socketIo(server, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://chatpp-sigma.vercel.app/signup",
         methods: ["GET", "POST"]
     }
 });

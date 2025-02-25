@@ -8,15 +8,15 @@ import PageNotFound from './PageNotFound';
 
 export default function AllRoutes() {
   return (
-<>
+    <>
 
-<Routes>
-<Route path='/' element={ <PrivateRoute> <Home /> </PrivateRoute> } />
-<Route path='/signup' element={<Signup />} />
-<Route path='/signin' element={<Signin />} />
-<Route path="*" element={ <PageNotFound /> }></Route>
-</Routes>
+      <Routes>
+        <Route path='/' element={<PrivateRoute> <Home /> </PrivateRoute>} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/signin' element={<Signin />} />
+        <Route path="*" element={<PageNotFound />}></Route>
+      </Routes>
 
-</>
+    </>
   )
 }
