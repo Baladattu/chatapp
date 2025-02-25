@@ -1,6 +1,6 @@
 # Chat Application
 
-<a href="chatpp-git-main-k-bala-dattus-projects.vercel.app/" target="blank">
+<a href="https://chatpp-71jsgswhm-k-bala-dattus-projects.vercel.app/signup" target="blank">
         <img src="https://img.shields.io/static/v1?style=for-the-badge&message=Want to see live preview »&color=1BB91F&logo=Bluefly&logoColor=FFFFFF&label=" alt="Bluefly-Clone" />
         </a>
 
