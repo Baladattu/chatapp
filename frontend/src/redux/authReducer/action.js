@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as types from "./actionType";
 
-const END_POINT="https://chatpp-l1we.onrender.com/"
+const END_POINT="https://chatpp-l1we.onrender.com"
 
 //  sign up user / create account
 const createAccount = (user) => async (dispatch) => {

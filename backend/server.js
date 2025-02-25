@@ -13,7 +13,7 @@ dotenv.config();
 connectionDB();
 app.use(cors({
     orgin: "https://chatpp-sigma.vercel.app/signup",
-    methods: ["GET", "POST", "PATCH"]
+    methods: ["GET", "POST", "PATCH", "DELETE"]
 }));
 
 app.use(express.json());
