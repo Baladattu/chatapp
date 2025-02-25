@@ -12,7 +12,7 @@ const app = express();
 dotenv.config();
 connectionDB();
 app.use(cors({
-    orgin: "https://chatpp-git-main-k-bala-dattus-projects.vercel.app",
+    orgin: "https://chatpp-sigma.vercel.app/",
     methods: ["GET", "POST", "PATCH", "DELETE"]
 }));
 
@@ -31,7 +31,7 @@ const server = app.listen(port, console.log("server is running at post = ", port
 
 const io = socketIo(server, {
     cors: {
-        origin: "https://chatpp-git-main-k-bala-dattus-projects.vercel.app",
+        origin: "https://chatpp-sigma.vercel.app/",
         methods: ["GET", "POST"]
     }
 });
