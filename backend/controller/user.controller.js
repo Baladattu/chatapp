@@ -44,6 +44,7 @@ const registerUser = async (req, res) => {
             return res.status(422).json({ error: "Login Failed." })
         }
     } catch (err) {
+        console.log(err);
         res.status(500).json({ error: err });
     }
 }
