@@ -88,8 +88,10 @@ const searchUser = async (req, res) => {
             ]
         } : {}
         const users = await User.find(search).find({ _id: { $ne: req.user._id } });
-
-        res.status(200).json(users)
+        if(users)
+            res.status(200).json(users)
+        else
+            res.status(200).json({message: 'No user found'});
     } catch (err) {
         console.log(err);
         res.status(500).json({ error: err });
