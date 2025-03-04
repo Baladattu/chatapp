@@ -4,7 +4,7 @@ const { authUserMiddleware } = require("../middlewares/auth.middleware");
 
 const router = express.Router();
 
-router.route("/").post(registerUser).get( authUserMiddleware ,searchUser).put( authUserMiddleware ,updateUserData);
+router.route("/").post(registerUser).get(searchUser).put( authUserMiddleware ,updateUserData);
 router.route("/login").post(authUser);
 
 module.exports = router;
