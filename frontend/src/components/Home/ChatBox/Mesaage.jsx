@@ -5,7 +5,7 @@ export default function Message({ item }) {
   const chatAlign = parsedData._id === item.sender._id ? 'items-end' : 'items-start';
 
   const createdAt = new Date(item.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-console.log(item)
+// console.log(item)
   return (
     <div className={`flex flex-col ${chatAlign} m-3`}>
       {/* User */}
