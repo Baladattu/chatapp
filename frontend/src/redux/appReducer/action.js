@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as types from "./actionType";
 
-const END_POINT = "https://chatc.onrender.com"
+const END_POINT = "http://localhost:1010"
 
 const jwtToken = () => {
   const userData = JSON.parse(localStorage.getItem("chat-app-login-user-data"));
@@ -16,12 +16,14 @@ const searchUsers = (query) => async (dispatch) => {
   }
 
   dispatch({ type: types.SEARCH_USER_PROCESSING });
+  console.log(jwtToken())
   try {
     const result = await axios.get(`${END_POINT}/api/user?search=${query}`, {
       headers: {
-        Authorization: jwtToken()
+        Authorization: `${jwtToken()}`
       }
     });
+
     dispatch({ type: types.SEARCH_USER_SUCCESS, payload: result.data });
   } catch (error) {
     dispatch({ type: types.SEARCH_USER_FAIL });
