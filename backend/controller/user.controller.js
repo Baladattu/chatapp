@@ -10,6 +10,27 @@ function generateJwtToken(_id) {
     });
 }
 
+const isvalidPassword = (password) => {
+    let minLength = 8;
+    let isCapital = /[A-Z]/.test(password[0]);
+    let isSmall = /[a-z]/.test(password);
+    let isNumber = /\d/.test(password);
+    let isSpecial = /[!@#$%^&*()_+-[]{}<>|]{2,}/.test(password);
+
+    if (password.lenght < minLength) {
+        return res.json({ message: 'Please Enter atleast 8 characters for password' });
+    }
+
+    if (!isCapital) {
+        return res.json({ message: 'Passsword should contain Capital' });
+    }
+
+    if (!isSpecial) {
+        return res.json({ message: 'Password should contain Special characters' });
+    }
+
+    return true;
+}
 //  create new user
 const registerUser = async (req, res) => {
     try {
@@ -18,6 +39,25 @@ const registerUser = async (req, res) => {
         //  check if all fields are filled
         if (!name || !email || !password) {
             res.status(422).json({ error: "Please Fill All The Fields." })
+        }
+
+
+        let minLength = 8;
+        let isCapital = /[A-Z]/.test(password[0]);
+        let isSmall = /[a-z]/.test(password);
+        let isNumber = /\d/.test(password);
+        let isSpecial = /[!@#$%^&*()_+-[]{}<>|]/.test(password);
+
+        if (password.lenght < minLength) {
+            return res.json({ message: 'Please Enter atleast 8 characters for password' });
+        }
+
+        if (!isCapital) {
+            return res.json({ message: 'Passsword should contain Capital at the start' });
+        }
+
+        if (!isSpecial) {
+            return res.json({ message: 'Password should contain Special characters' });
         }
 
         // check if user already created
@@ -88,10 +128,10 @@ const searchUser = async (req, res) => {
             ]
         } : {}
         const users = await User.find(search).find({ _id: { $ne: req.user._id } });
-        if(users)
+        if (users)
             res.status(200).json(users)
         else
-            res.status(200).json({message: 'No user found'});
+            res.status(200).json({ message: 'No user found' });
     } catch (err) {
         console.log(err);
         res.status(500).json({ error: err });

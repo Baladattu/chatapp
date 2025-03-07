@@ -28,7 +28,7 @@ app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 
 const port = process.env.PORT || 1010
-const server = app.listen(port, console.log("server is running at post = ", port));
+const server = app.listen(port,() => console.log("server is running at post = ", port));
 
 const io = socketIo(server, {
     cors: {
@@ -36,7 +36,6 @@ const io = socketIo(server, {
         methods: ["GET", "POST"]
     }
 });
-
 
 io.on("connection", (socket) => {
     socket.on("setup", (userData) => {
